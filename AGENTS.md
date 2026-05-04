@@ -43,3 +43,7 @@ The `slack_send_message` tool applies a **length limit** (on the order of thousa
 ## Environment
 
 This repo has **no** npm dependencies for the digest itself. `.cursor/environment.json` runs a no-op install so cloud machines start quickly. If you add tooling later, update that file’s `install` command to match.
+
+**Node.js:** Not pre-installed on Cloud Agent VMs. Only needed for `scripts/post-digest-slack-webhook.mjs` (optional Slack webhook fallback). If you need it, install Node 18+ at the start of your session (`curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt-get install -y nodejs`). The primary Slack path uses the Slack MCP server and does not require Node.
+
+**Lint / test / build:** There are no linter, test suite, or build commands for this vault. Correctness is validated per-run by the `max-digest-verifier` agent (`.cursor/agents/max-digest-verifier.md`), which checks the `runs/{run-id}/` folder for completeness against the run manifest.
