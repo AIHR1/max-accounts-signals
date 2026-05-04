@@ -26,20 +26,20 @@ Max is **not** a Cursor user, so the digest must reach him in Slack via your wor
 
 **Automation wiring:** On the scheduled automation, enable **MCP** and attach the **Slack** MCP server your team uses for cloud runs ([MCP on cloud agents](https://cursor.com/docs/cloud-agent/capabilities)). If the automation is **team-owned**, complete Slack / MCP OAuth under the **automations service account** so posting to the target channel is allowed—personal OAuth on someone else’s account will break when the automation runs unattended ([permissions / billing](https://cursor.com/docs/cloud-agent/automations)). Prefer an **HTTP** Slack MCP configuration when your setup allows it; otherwise use the supported team configuration from [Cloud Agents / MCP settings](https://cursor.com/agents).
 
-**Channel target:** Post to the **Slack channel** Max uses for digests. Store that channel’s id (typically `C…`; in Slack: channel details → copy link or *Copy channel ID*) as a Cloud Agent **secret** named `**MAX_SLACK_CHANNEL_ID`**—the encrypted key/value in Cursor’s Cloud Agents / team settings that becomes an environment variable on the VM ([Cloud agent setup — Environment variables and secrets](https://cursor.com/docs/cloud-agent/setup)). Before sending, read it with a shell check such as `printenv MAX_SLACK_CHANNEL_ID` and pass it as `**channel_id**` to `**slack_send_message**`. Do not paste the id into git, the PR, or committed markdown. If the secret is absent, you may use `**slack_search_channels**` to find the right channel and **confirm** it is the intended destination before posting.
+**Channel target:** Post to the **Slack channel** Max uses for digests. The channel id (typically `C…`; in Slack: channel details → copy link or *Copy channel ID*) is set in **`.cursor/environment.json`** under **`env.MAX_SLACK_CHANNEL_ID`**. Cloud agents load that map into the VM environment ([Cloud agent setup](https://cursor.com/docs/cloud-agent/setup)). Replace the placeholder value with the real id before production runs. **Security:** the id is committed with the repo—acceptable for a private vault; avoid publishing this file to a public repository if you want the channel reference non-obvious. Before sending, read it with a shell check such as `printenv MAX_SLACK_CHANNEL_ID` and pass it as **`channel_id`** to **`slack_send_message`**. If it is still the placeholder or unset, use **`slack_search_channels`** to find the right channel and **confirm** the destination before posting.
 
 **Message content** — write for a busy reader: short paragraphs, plain English, no internal gate jargon without explanation. Include:
 
-1. **Review period** and `**run-id`**.
+1. **Review period** and **`run-id`**.
 2. **Top 5–10** Part A headlines (account + what changed + why it matters), each with its primary link from the digest.
 3. **Red flags / Part B** themes in one short paragraph if any.
 4. **Verifier** outcome (pass / pass with notes / fail) and what to do next if not a clean pass.
 5. **Links** to `runs/{run-id}/master-digest-{run-id}.md`, `runs/{run-id}/run-manifest-{run-id}.md`, and the **GitHub PR** URL if one exists.
 
-The `slack_send_message` tool applies a **length limit** (on the order of thousands of characters). If the summary is too long, send **multiple** sequential messages to the same channel or trim to highlights and rely on the GitHub links for detail. You may write a scratch file such as `runs/{run-id}/slack-summary-{run-id}.md` for your own editing, but **do not commit secrets** into it.
+The `slack_send_message` tool applies a **length limit** (on the order of thousands of characters). If the summary is too long, send **multiple** sequential messages to the same channel or trim to highlights and rely on the GitHub links for detail. You may write a scratch file such as `runs/{run-id}/slack-summary-{run-id}.md` for your own editing; **do not** put tokens or webhook URLs in committed files.
 
 **Fallback:** If Slack MCP is unavailable and only a webhook exists, `SLACK_WEBHOOK_URL` plus `node scripts/post-digest-slack-webhook.mjs` stays available for a fixed channel—see `scripts/README.md`.
 
 ## Environment
 
-This repo has **no** npm dependencies for the digest itself. `.cursor/environment.json` runs a no-op install so cloud machines start quickly. If you add tooling later, update that file’s `install` command to match.
+This repo has **no** npm dependencies for the digest itself. **`.cursor/environment.json`** sets a no-op **`install`** command and **`env.MAX_SLACK_CHANNEL_ID`** for Slack MCP posts. If you add tooling later, extend that file’s `install` command to match.
