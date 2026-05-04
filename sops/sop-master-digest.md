@@ -209,6 +209,14 @@ Execute in this order so the **run manifest** stays auditable and the **verifier
 10. **Fill run manifest matrix last:** For each cell, **Attempted** only if a batch log proves §7 minimums for that row + signal; **Waiver** only with user-approved code. Update **Subagent / batch invocations** and **Batch coverage** rows.  
 11. Invoke **`max-digest-verifier`** against the **`runs/{run-id}/`** manifest + digest + master index **and** all batch lane logs in that folder before claiming **complete**.
 
+### 7.4 Notify Max (Slack MCP)
+
+When the run is delivered to Max via **Slack MCP** (Cursor Cloud, Automations, or equivalent), post the digest summary with **`slack_send_message`** using this **`channel_id`** (Max’s digest destination — **not** a secret; same value may be mirrored as **`MAX_SLACK_CHANNEL_ID`** in **`.cursor/environment.json`** for automation env loading):
+
+**`D01DFNA0GBH`**
+
+Message content, length limits, multi-message splits, and webhook fallback are specified in **`AGENTS.md`**.
+
 ---
 
 ## 8. Part A — Entry format
