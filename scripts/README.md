@@ -2,7 +2,7 @@
 
 ## `post-digest-slack-webhook.mjs`
 
-**Primary path for weekly notifications to Max:** configure **Slack MCP** on the automation and follow `AGENTS.md` (DM via `slack_send_message` and secret **`MAX_SLACK_MEMBER_ID`**). **Do not** rely on Cursor’s built-in **Send to Slack** for that recipient.
+**Primary path for weekly notifications to Max:** configure **Slack MCP** on the automation and follow `AGENTS.md` (post to his channel via `slack_send_message` and secret `**MAX_SLACK_CHANNEL_ID`**). **Do not** rely on Cursor’s built-in **Send to Slack** for that destination.
 
 Use this webhook helper only when:
 

@@ -22,23 +22,23 @@ If the automation is configured to push without a PR, still make a **single cohe
 
 ## Slack — notify Max (Slack MCP, not Cursor’s Send to Slack)
 
-Max is **not** a Cursor user, so the digest must reach him as a normal Slack DM from your workspace’s **Slack MCP** integration (same tool family as in the Cursor desktop MCP catalog: `slack_send_message`, `slack_search_users`, etc.). **Do not** use Cursor Automations’ built-in **Send to Slack** action for Max’s notification.
+Max is **not** a Cursor user, so the digest must reach him in Slack via your workspace’s **Slack MCP** (`slack_send_message`, `slack_search_channels`, etc.). **Do not** use Cursor Automations’ built-in **Send to Slack** action for this notification.
 
-**Automation wiring:** On the scheduled automation, enable **MCP** and attach the **Slack** MCP server your team uses for cloud runs ([MCP on cloud agents](https://cursor.com/docs/cloud-agent/capabilities)). If the automation is **team-owned**, complete Slack / MCP OAuth under the **automations service account** so DMs are allowed—personal OAuth on someone else’s account will break when the automation runs unattended ([permissions / billing](https://cursor.com/docs/cloud-agent/automations)). Prefer an **HTTP** Slack MCP configuration when your setup allows it; otherwise use the supported team configuration from [Cloud Agents / MCP settings](https://cursor.com/agents).
+**Automation wiring:** On the scheduled automation, enable **MCP** and attach the **Slack** MCP server your team uses for cloud runs ([MCP on cloud agents](https://cursor.com/docs/cloud-agent/capabilities)). If the automation is **team-owned**, complete Slack / MCP OAuth under the **automations service account** so posting to the target channel is allowed—personal OAuth on someone else’s account will break when the automation runs unattended ([permissions / billing](https://cursor.com/docs/cloud-agent/automations)). Prefer an **HTTP** Slack MCP configuration when your setup allows it; otherwise use the supported team configuration from [Cloud Agents / MCP settings](https://cursor.com/agents).
 
-**DM target:** In Slack, a DM uses the member’s **`user` id** (looks like `U…`) as `channel_id` for `slack_send_message`. Add a Cloud Agent secret **`MAX_SLACK_MEMBER_ID`** set to Max’s Slack member id (from Slack profile → *Copy member ID*). Before sending, obtain that value with a read-only shell check (for example `printenv MAX_SLACK_MEMBER_ID`) so it is never pasted into committed files. If the secret is missing, you may use **`slack_search_users`** and **confirm** you have the right person before DMing.
+**Channel target:** Post to the **Slack channel** Max uses for digests. Store that channel’s id (typically `C…`; in Slack: channel details → copy link or *Copy channel ID*) as a Cloud Agent **secret** named `**MAX_SLACK_CHANNEL_ID`**—the encrypted key/value in Cursor’s Cloud Agents / team settings that becomes an environment variable on the VM ([Cloud agent setup — Environment variables and secrets](https://cursor.com/docs/cloud-agent/setup)). Before sending, read it with a shell check such as `printenv MAX_SLACK_CHANNEL_ID` and pass it as `**channel_id**` to `**slack_send_message**`. Do not paste the id into git, the PR, or committed markdown. If the secret is absent, you may use `**slack_search_channels**` to find the right channel and **confirm** it is the intended destination before posting.
 
 **Message content** — write for a busy reader: short paragraphs, plain English, no internal gate jargon without explanation. Include:
 
-1. **Review period** and **`run-id`**.
+1. **Review period** and `**run-id`**.
 2. **Top 5–10** Part A headlines (account + what changed + why it matters), each with its primary link from the digest.
 3. **Red flags / Part B** themes in one short paragraph if any.
 4. **Verifier** outcome (pass / pass with notes / fail) and what to do next if not a clean pass.
 5. **Links** to `runs/{run-id}/master-digest-{run-id}.md`, `runs/{run-id}/run-manifest-{run-id}.md`, and the **GitHub PR** URL if one exists.
 
-The `slack_send_message` tool applies a **length limit** (on the order of thousands of characters). If the summary is too long, send **multiple** sequential DMs or trim to highlights and rely on the GitHub links for detail. You may write a scratch file such as `runs/{run-id}/slack-summary-{run-id}.md` for your own editing, but **do not commit secrets** into it.
+The `slack_send_message` tool applies a **length limit** (on the order of thousands of characters). If the summary is too long, send **multiple** sequential messages to the same channel or trim to highlights and rely on the GitHub links for detail. You may write a scratch file such as `runs/{run-id}/slack-summary-{run-id}.md` for your own editing, but **do not commit secrets** into it.
 
-**Fallback:** If Slack MCP is unavailable and only a webhook exists, `SLACK_WEBHOOK_URL` plus `node scripts/post-digest-slack-webhook.mjs` remains an optional last resort (usually posts to one fixed channel, not a DM)—see `scripts/README.md`.
+**Fallback:** If Slack MCP is unavailable and only a webhook exists, `SLACK_WEBHOOK_URL` plus `node scripts/post-digest-slack-webhook.mjs` stays available for a fixed channel—see `scripts/README.md`.
 
 ## Environment
 
