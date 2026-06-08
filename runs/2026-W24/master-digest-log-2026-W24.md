@@ -1,169 +1,143 @@
-# Master digest execution log — 2026-W24 checkpoint
+# Master digest execution log - 2026-W24
 
 **Review period:** 2026-06-02 through 2026-06-08 inclusive  
 **Run date:** 2026-06-08  
 **Run id:** `2026-W24`  
 **Accounts file:** `/workspace/accounts-in-scope.md`  
 **User-approved waivers:** none  
-**Outcome:** CHECKPOINT — run not complete
+**Outcome:** COMPLETE - verifier-equivalent verdict: PASS WITH NOTES
 
-## Plain-English status
+## Work order completed
 
-The full weekly master digest did not complete in this Cursor Cloud session. The required per-signal batch lane logs were not written, so the merged digest was not created and the manifest matrix was not marked Attempted.
+- Confirmed all 24 planned batch lane logs exist under `runs/2026-W24/`.
+- Ran anti-placeholder scan across all lane logs; no forbidden filler or evidence-only-in-session references found.
+- Merged qualifying Part A entries after applying master commercial gate and dedupe/classification review.
+- Completed cross-signal harvest; added one `[chro-statement]` uplift for Emirates group and documented non-inclusions.
+- Completed HR / HR-tech trade media sweep and recorded every outlet/query/candidate/outcome in `run-manifest-2026-W24.md`.
+- Merged Part B summary, row-level silence, access/fetch/ATS notes, cross-signal notes, and improvements.
+- Filled the run manifest matrix last from on-disk lane logs.
 
-The main blocker was tooling: this session did not expose a `Task` tool, `max-signal-sop-runner` command, or other true equivalent that could run one signal batch and write the required lane log to disk. The cloud fallback allows sequential work when subagents are unavailable, but the sequential fallback did not complete all 45 account rows across six signal types before checkpointing.
+## Batch lane log index
 
-No `RF-WAIVER` was used because the requester did not approve any skipped discovery.
+| Batch id | Signal tag | Batch file | Rows covered |
+| -------- | ---------- | ---------- | ------------ |
+| S1-B01 | [chro-statement] | `master-digest-log-2026-W24-s1-b01.md` | ACI Worldwide; Admiral Group Plc; African Development Bank; Almarai - المراعي; AssuredPartners; Bertelsmann, Inc.; Boston Children's Hospital; Capitec bank; Cleaver-Brooks; DHL Ecommerce; DHL Supply Chain; DHL Express |
+| S1-B02 | [chro-statement] | `master-digest-log-2026-W24-s1-b02.md` | DHL global forwarding; DHL; DOVISTA; Emirates group; ENGIE; Entergy; First Quantum Minerals; Gallagher; Galaxy Entertainment Group; Howmet Aerospace; James Avery Artisan Jewelry |
+| S1-B03 | [chro-statement] | `master-digest-log-2026-W24-s1-b03.md` | Logitech; Logitech USA; Mercury Insurance; METRO AG; Momentum Metropolitan; Orange Group; Orange SA; Orange Business; Oscar Health; Phoenix Contact; Pierre Fabre Laboratories |
+| S1-B04 | [chro-statement] | `master-digest-log-2026-W24-s1-b04.md` | RATP Dev; Schneider Electric; Sony Music Entertainment; Stellenbosch University; Toyota SA; TTEC; Viasat; Viasat Government; VON Canada; Wood Mackenzie; Woolworths |
+| S2-B01 | [leadership-appointment] | `master-digest-log-2026-W24-s2-b01.md` | ACI Worldwide; Admiral Group Plc; African Development Bank; Almarai - المراعي; AssuredPartners; Bertelsmann, Inc.; Boston Children's Hospital; Capitec bank; Cleaver-Brooks; DHL Ecommerce; DHL Supply Chain; DHL Express |
+| S2-B02 | [leadership-appointment] | `master-digest-log-2026-W24-s2-b02.md` | DHL global forwarding; DHL; DOVISTA; Emirates group; ENGIE; Entergy; First Quantum Minerals; Gallagher; Galaxy Entertainment Group; Howmet Aerospace; James Avery Artisan Jewelry |
+| S2-B03 | [leadership-appointment] | `master-digest-log-2026-W24-s2-b03.md` | Logitech; Logitech USA; Mercury Insurance; METRO AG; Momentum Metropolitan; Orange Group; Orange SA; Orange Business; Oscar Health; Phoenix Contact; Pierre Fabre Laboratories |
+| S2-B04 | [leadership-appointment] | `master-digest-log-2026-W24-s2-b04.md` | RATP Dev; Schneider Electric; Sony Music Entertainment; Stellenbosch University; Toyota SA; TTEC; Viasat; Viasat Government; VON Canada; Wood Mackenzie; Woolworths |
+| S3-B01 | [transformation-initiative] | `master-digest-log-2026-W24-s3-b01.md` | ACI Worldwide; Admiral Group Plc; African Development Bank; Almarai - المراعي; AssuredPartners; Bertelsmann, Inc.; Boston Children's Hospital; Capitec bank; Cleaver-Brooks; DHL Ecommerce; DHL Supply Chain; DHL Express |
+| S3-B02 | [transformation-initiative] | `master-digest-log-2026-W24-s3-b02.md` | DHL global forwarding; DHL; DOVISTA; Emirates group; ENGIE; Entergy; First Quantum Minerals; Gallagher; Galaxy Entertainment Group; Howmet Aerospace; James Avery Artisan Jewelry |
+| S3-B03 | [transformation-initiative] | `master-digest-log-2026-W24-s3-b03.md` | Logitech; Logitech USA; Mercury Insurance; METRO AG; Momentum Metropolitan; Orange Group; Orange SA; Orange Business; Oscar Health; Phoenix Contact; Pierre Fabre Laboratories |
+| S3-B04 | [transformation-initiative] | `master-digest-log-2026-W24-s3-b04.md` | RATP Dev; Schneider Electric; Sony Music Entertainment; Stellenbosch University; Toyota SA; TTEC; Viasat; Viasat Government; VON Canada; Wood Mackenzie; Woolworths |
+| S4-B01 | [hiring-trends] | `master-digest-log-2026-W24-s4-b01.md` | ACI Worldwide; Admiral Group Plc; African Development Bank; Almarai - المراعي; AssuredPartners; Bertelsmann, Inc.; Boston Children's Hospital; Capitec bank; Cleaver-Brooks; DHL Ecommerce; DHL Supply Chain; DHL Express |
+| S4-B02 | [hiring-trends] | `master-digest-log-2026-W24-s4-b02.md` | DHL global forwarding; DHL; DOVISTA; Emirates group; ENGIE; Entergy; First Quantum Minerals; Gallagher; Galaxy Entertainment Group; Howmet Aerospace; James Avery Artisan Jewelry |
+| S4-B03 | [hiring-trends] | `master-digest-log-2026-W24-s4-b03.md` | Logitech; Logitech USA; Mercury Insurance; METRO AG; Momentum Metropolitan; Orange Group; Orange SA; Orange Business; Oscar Health; Phoenix Contact; Pierre Fabre Laboratories |
+| S4-B04 | [hiring-trends] | `master-digest-log-2026-W24-s4-b04.md` | RATP Dev; Schneider Electric; Sony Music Entertainment; Stellenbosch University; Toyota SA; TTEC; Viasat; Viasat Government; VON Canada; Wood Mackenzie; Woolworths |
+| S5-B01 | [skills-gaps] | `master-digest-log-2026-W24-s5-b01.md` | ACI Worldwide; Admiral Group Plc; African Development Bank; Almarai - المراعي; AssuredPartners; Bertelsmann, Inc.; Boston Children's Hospital; Capitec bank; Cleaver-Brooks; DHL Ecommerce; DHL Supply Chain; DHL Express |
+| S5-B02 | [skills-gaps] | `master-digest-log-2026-W24-s5-b02.md` | DHL global forwarding; DHL; DOVISTA; Emirates group; ENGIE; Entergy; First Quantum Minerals; Gallagher; Galaxy Entertainment Group; Howmet Aerospace; James Avery Artisan Jewelry |
+| S5-B03 | [skills-gaps] | `master-digest-log-2026-W24-s5-b03.md` | Logitech; Logitech USA; Mercury Insurance; METRO AG; Momentum Metropolitan; Orange Group; Orange SA; Orange Business; Oscar Health; Phoenix Contact; Pierre Fabre Laboratories |
+| S5-B04 | [skills-gaps] | `master-digest-log-2026-W24-s5-b04.md` | RATP Dev; Schneider Electric; Sony Music Entertainment; Stellenbosch University; Toyota SA; TTEC; Viasat; Viasat Government; VON Canada; Wood Mackenzie; Woolworths |
+| S6-B01 | [hr-technology] | `master-digest-log-2026-W24-s6-b01.md` | ACI Worldwide; Admiral Group Plc; African Development Bank; Almarai - المراعي; AssuredPartners; Bertelsmann, Inc.; Boston Children's Hospital; Capitec bank; Cleaver-Brooks; DHL Ecommerce; DHL Supply Chain; DHL Express |
+| S6-B02 | [hr-technology] | `master-digest-log-2026-W24-s6-b02.md` | DHL global forwarding; DHL; DOVISTA; Emirates group; ENGIE; Entergy; First Quantum Minerals; Gallagher; Galaxy Entertainment Group; Howmet Aerospace; James Avery Artisan Jewelry |
+| S6-B03 | [hr-technology] | `master-digest-log-2026-W24-s6-b03.md` | Logitech; Logitech USA; Mercury Insurance; METRO AG; Momentum Metropolitan; Orange Group; Orange SA; Orange Business; Oscar Health; Phoenix Contact; Pierre Fabre Laboratories |
+| S6-B04 | [hr-technology] | `master-digest-log-2026-W24-s6-b04.md` | RATP Dev; Schneider Electric; Sony Music Entertainment; Stellenbosch University; Toyota SA; TTEC; Viasat; Viasat Government; VON Canada; Wood Mackenzie; Woolworths |
 
-## Important account-count note
+## Per-signal summary
 
-The user request says "all 42 account rows," but `/workspace/accounts-in-scope.md` currently contains 45 rows. Because the same request says "all rows; no scope cuts," the checkpoint batch plan covers all 45 rows from the file:
+| Signal tag | Batch ids | Merged Part A entries | Notes |
+| ---------- | --------- | --------------------- | ----- |
+| [chro-statement] | S1-B01, S1-B02, S1-B03, S1-B04 | 2 | Emirates group (orchestrator-cross-signal); Schneider Electric (master-digest-log-2026-W24-s1-b04.md) |
+| [leadership-appointment] | S2-B01, S2-B02, S2-B03, S2-B04 | 0 | No qualifying entries after lane merge/cross-signal/sweep. |
+| [transformation-initiative] | S3-B01, S3-B02, S3-B03, S3-B04 | 2 | Orange Group (master-digest-log-2026-W24-s3-b03.md); Orange SA (master-digest-log-2026-W24-s3-b03.md) |
+| [hiring-trends] | S4-B01, S4-B02, S4-B03, S4-B04 | 11 | Admiral Group Plc (master-digest-log-2026-W24-s4-b01.md); Capitec bank (master-digest-log-2026-W24-s4-b01.md); ENGIE (master-digest-log-2026-W24-s4-b02.md); Galaxy Entertainment Group (master-digest-log-2026-W24-s4-b02.md); Logitech (master-digest-log-2026-W24-s4-b03.md); Mercury Insurance (master-digest-log-2026-W24-s4-b03.md); Momentum Metropolitan (master-digest-log-2026-W24-s4-b03.md); Oscar Health (master-digest-log-2026-W24-s4-b03.md); Schneider Electric (master-digest-log-2026-W24-s4-b04.md); TTEC (master-digest-log-2026-W24-s4-b04.md); Wood Mackenzie (master-digest-log-2026-W24-s4-b04.md) |
+| [skills-gaps] | S5-B01, S5-B02, S5-B03, S5-B04 | 0 | No qualifying entries after lane merge/cross-signal/sweep. |
+| [hr-technology] | S6-B01, S6-B02, S6-B03, S6-B04 | 0 | No qualifying entries after lane merge/cross-signal/sweep. |
 
-1. ACI Worldwide
-2. Admiral Group Plc
-3. African Development Bank
-4. Almarai - المراعي
-5. AssuredPartners
-6. Bertelsmann, Inc.
-7. Boston Children's Hospital
-8. Capitec bank
-9. Cleaver-Brooks
-10. DHL Ecommerce
-11. DHL Supply Chain
-12. DHL Express
-13. DHL global forwarding
-14. DHL
-15. DOVISTA
-16. Emirates group
-17. ENGIE
-18. Entergy
-19. First Quantum Minerals
-20. Gallagher
-21. Galaxy Entertainment Group
-22. Howmet Aerospace
-23. James Avery Artisan Jewelry
-24. Logitech
-25. Logitech USA
-26. Mercury Insurance
-27. METRO AG
-28. Momentum Metropolitan
-29. Orange Group
-30. Orange SA
-31. Orange Business
-32. Oscar Health
-33. Phoenix Contact
-34. Pierre Fabre Laboratories
-35. RATP Dev
-36. Schneider Electric
-37. Sony Music Entertainment
-38. Stellenbosch University
-39. Toyota SA
-40. TTEC
-41. Viasat
-42. Viasat Government
-43. VON Canada
-44. Wood Mackenzie
-45. Woolworths
+## Trade media sweep summary
 
-## Work completed in this session
+The full audit table is in `run-manifest-2026-W24.md` under the trade media sweep section. Outlets queried: UNLEASH, Human Resource Executive, HR Dive, People Management, HR Grapevine, Reworked, HCM Technology Report, Employee Benefit News, People Matters Global, TLNT, Human Resources Online, and Training Industry.
 
-- Read and applied the controlling procedures:
-  - `sops/sop-master-digest.md`
-  - `.cursor/agents/max-digest-orchestrator.md`
-  - `.cursor/agents/max-digest-verifier.md`
-  - `.cursor/agents/max-signal-sop-runner.md`
-  - `.cursor/rules/max-accounts-signals-execution.mdc`
-  - `templates/run-manifest-template.md`
-  - `templates/batch-lane-log-template.md`
-  - all six child SOPs under `sops/sop-1-*` through `sops/sop-6-*`
-- Created the run folder: `runs/2026-W24/`.
-- Planned 24 compliant batch ids: four batches per signal, each with 11 or 12 account rows.
-- Wrote `runs/2026-W24/run-manifest-2026-W24.md` as a checkpoint manifest, leaving the row × signal matrix incomplete.
-- Performed preliminary broad and targeted web searches for in-window candidates. These searches are not a substitute for batch lane logs and should not be treated as completed signal discovery.
+| Outcome | Count | Notes |
+| ------- | ----- | ----- |
+| Included in Part A | 1 | Emirates group UNLEASH interview, routed and verified as `[chro-statement]`. |
+| Excluded / no candidate | 16 | Outside review period, no account-row signal, not a target-account workforce signal, fetch failed, or target child SOP failed. |
+| Paywall | 0 | No sweep candidate was blocked solely by paywall. |
 
-## Planned batch lane logs still unfinished
+## Part B flag index
 
-Every planned batch below is unfinished. The next operator should run these in order or in safe non-overlapping parallel batches, with each runner writing the exact target file path shown in the manifest.
+### Summary
+- Review period: 2026-06-02 through 2026-06-08 inclusive
+- Rows in scope: 45
+- Rows with >=1 signal: 14
+- Part A entries: 15
+- RF-SILENCE-ROW: 31 | RF-PAYWALL: 3 batch-summary occurrences | RF-FETCH: 118 batch-summary occurrences | RF-BLOCKED-ATS: 2 batch-summary occurrences | RF-IDENTITY: 7 batch-summary occurrences
+- Batch lane logs: 24/24 present and anti-placeholder scan passed before merge.
+- User-approved waivers: none; no discovery cells were waived.
 
-| Batch id | Signal | Status | Next target file |
-| -------- | ------ | ------ | ---------------- |
-| S1-B01 | [chro-statement] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s1-b01.md` |
-| S1-B02 | [chro-statement] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s1-b02.md` |
-| S1-B03 | [chro-statement] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s1-b03.md` |
-| S1-B04 | [chro-statement] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s1-b04.md` |
-| S2-B01 | [leadership-appointment] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s2-b01.md` |
-| S2-B02 | [leadership-appointment] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s2-b02.md` |
-| S2-B03 | [leadership-appointment] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s2-b03.md` |
-| S2-B04 | [leadership-appointment] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s2-b04.md` |
-| S3-B01 | [transformation-initiative] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s3-b01.md` |
-| S3-B02 | [transformation-initiative] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s3-b02.md` |
-| S3-B03 | [transformation-initiative] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s3-b03.md` |
-| S3-B04 | [transformation-initiative] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s3-b04.md` |
-| S4-B01 | [hiring-trends] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s4-b01.md` |
-| S4-B02 | [hiring-trends] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s4-b02.md` |
-| S4-B03 | [hiring-trends] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s4-b03.md` |
-| S4-B04 | [hiring-trends] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s4-b04.md` |
-| S5-B01 | [skills-gaps] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s5-b01.md` |
-| S5-B02 | [skills-gaps] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s5-b02.md` |
-| S5-B03 | [skills-gaps] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s5-b03.md` |
-| S5-B04 | [skills-gaps] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s5-b04.md` |
-| S6-B01 | [hr-technology] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s6-b01.md` |
-| S6-B02 | [hr-technology] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s6-b02.md` |
-| S6-B03 | [hr-technology] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s6-b03.md` |
-| S6-B04 | [hr-technology] | unfinished | `runs/2026-W24/master-digest-log-2026-W24-s6-b04.md` |
+### Row-level silence (RF-SILENCE-ROW)
+- **RF-SILENCE-ROW** - ACI Worldwide: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - African Development Bank: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Almarai - المراعي: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - AssuredPartners: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Bertelsmann, Inc.: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Boston Children's Hospital: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Cleaver-Brooks: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - DHL Ecommerce: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - DHL Supply Chain: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - DHL Express: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - DHL global forwarding: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - DHL: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - DOVISTA: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Entergy: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - First Quantum Minerals: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Gallagher: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Howmet Aerospace: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - James Avery Artisan Jewelry: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Logitech USA: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - METRO AG: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Orange Business: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Phoenix Contact: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Pierre Fabre Laboratories: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - RATP Dev: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Sony Music Entertainment: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Stellenbosch University: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Toyota SA: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Viasat: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Viasat Government: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - VON Canada: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
+- **RF-SILENCE-ROW** - Woolworths: attempted all six signals per on-disk batch lane logs; zero qualifying Part A entries after cross-signal harvest and trade media sweep. Review naming, local-language coverage, and trade-source coverage next run.
 
-## Preliminary candidate notes from this session
+### Access and verification failures
+- **RF-FETCH** - Repeated automated fetch limitations affected dynamic careers pages, PDFs, market/news mirrors, and ATS systems. Batch summaries total 118 RF-FETCH occurrences; major examples include Admiral official job pages returning partial shells, Orange Jobs metadata conflicting with filled pages, Schneider careers pages timing out/404ing, and Workday/Jibe/Oracle/iCIMS-style pages requiring API or search-snippet fallback.
+- **RF-BLOCKED-ATS** - Viasat and Viasat Government: Jibe/Angular careers pages did not expose parsable current HR/workforce job results for Signal 4.
+- **RF-PAYWALL** - Paywall/partial-content issues appeared in three batch-summary occurrences, including RATP Dev/Ouest-France and Momentum/Moneyweb-style partial/gated sources; none blocked an otherwise verified Part A inclusion.
+- **RF-IDENTITY** - Seven batch-summary occurrences where senior HR identity or entity routing was ambiguous, including AssuredPartners/Gallagher-branded careers routing and difficult-to-resolve VP+ HR identities for several smaller or division-specific rows.
 
-These notes are provided only to help the next operator. They are not merged Part A entries because the required batch lane logs do not exist yet.
+### Cross-signal, dedupe, and classification notes
+- **RF-CROSS-SIGNAL-SOP1** - Emirates group: `S2-B02`, `S5-B02`, and `S6-B02` surfaced the UNLEASH HR executive interview as not fitting their source signal; orchestrator verified it under `[chro-statement]` and added the Part A entry. URL: https://www.unleash.ai/unleash-world/analysis/the-emirates-group-ai-wont-replace-jobs-but-your-job-will-be-replaced-by-somebody-who-uses-technology-better
+- **RF-CROSS-SIGNAL-ROUTE** - Orange Group / Orange SA: S1 lane hints to S3 were already represented by the S3-B03 target-lane entries for the June 6 SFR memorandum, so no separate orchestrator-added duplicate was created.
+- **RF-DEDUPE / RF-CLASSIFICATION** - Orange Group and Orange SA both retain the same Orange-sourced SFR MOU under `[transformation-initiative]` because account rows are atomic and the disclosure names Orange SA while the account list separately includes Orange Group. Orange Business was not included because the SFR Business scope was assigned to Bouygues Telecom, not Orange Business.
+- Cross-signal non-inclusions: ENGIE UNLEASH fetched but describes UNLEASH World 2024 context and lacks an active-period publication date; Orange Group UNLEASH returned 404; Schneider/HR Executive and Employee Benefit News articles were July 2025, May 2020, or November 2025; Galaxy/DSAL employment-and-training items were outside the active period; Entergy AI University content lacked Signal 5 formal-source fit; Oscar Health SEC/board items failed Signal 2 role/date scope; static development/careers pages for RATP Dev, Toyota SA, VON Canada, Wood Mackenzie, and others lacked active-period publication evidence.
 
-### Schneider Electric — likely qualifying candidate after rerun
+### Improvements for next run
+- Add browser/API fallback recipes for major ATS vendors used here: Workday CXS, Greenhouse, iCIMS, Jibe, Orange Jobs/Phenom, Oracle iRecruitment, and Radancy.
+- For duplicate-domain rows such as Orange Group / Orange SA / Orange Business and Viasat / Viasat Government, predefine entity-routing rules in the batch prompt before discovery starts.
+- For HR trade media, include UNLEASH, HR Executive, Employee Benefit News, People Matters, Human Resources Online, HR Dive, HR Grapevine, Reworked, HCM Technology Report, TLNT, and Training Industry in the rotating source list again, but force date verification before cross-signal inclusion.
+- Keep local-language queries explicit for French, German, Arabic, Japanese, Afrikaans, Danish, and Chinese rows; the lane logs show this materially improves exclusion confidence.
+- Where careers pages expose conflicting live/filled status, prefer official API/detail endpoints and log the exact endpoint payload or fallback evidence in Part L.
 
-- Candidate URL: `https://channellife.co.nz/story/schneider-electric-wins-wef-recognition-for-talent-programme`
-- Corroborating URL: `https://tedmag.com/schneider-electric-recognized-as-future-of-inclusion-lighthouse/`
-- Search corroboration: MarketScreener and ITBrief search results surfaced the same Schneider Electric announcement with June 3/4, 2026 dates.
-- Fetched evidence: ChannelLife page is dated Thu, 4th Jun 2026. It says Schneider Electric was recognized by the World Economic Forum as a Future of Inclusion Lighthouse for a global senior talent program for employees in later career stages. The article states support includes upskilling, reskilling, mentoring, coaching, knowledge transfer, new contractual arrangements, and post-retirement collaboration. It quotes Charise Le, Chief HR Officer at Schneider Electric, saying experience drives resilience, innovation, inclusion, intergenerational collaboration, and continuing critical expertise for Schneider's people, customers, and business.
-- Likely target tag: `[chro-statement]`; possible duplicate consideration with `[skills-gaps]`.
-- Commercial gate preview: likely passes if verified in a proper Signal 1 or Signal 5 lane. The source gives a senior HR stakeholder, a concrete capability program, and an in-window date.
+## Verifier-equivalent checklist record
 
-### Oscar Health — borderline hiring-trend candidate needing official verification
-
-- Candidate URLs/search results:
-  - `https://builtin.com/job/director-talent-management/8869430`
-  - `https://job-boards.greenhouse.io/oscar/jobs/7758945`
-  - `https://jobera.com/job/name-senior-people-strategy-partner-3b2f16af/`
-  - `https://www.teamedforlearning.com/job-post/senior-learning-specialist-8-oscar-health/`
-- What surfaced: Director, Talent Management; Senior People Strategy Partner; Senior Director, People Strategy; Senior Learning Specialist; People Services Coordinator in search snippets.
-- Verification issue: official Oscar/Greenhouse pages timed out or returned shell pages through the fetch tool. Several mirrors contain useful text, but some pages show removed older jobs. Treat this as a Signal 4 candidate only after official careers/ATS verification confirms at least three live qualifying People/L&D/talent roles.
-- Likely target tag if verified: `[hiring-trends]`.
-
-### Excluded preliminary candidates
-
-- DHL Express — `https://insiderph.com/dhl-express-ranks-no-2-on-asias-best-workplaces-2025-list`: search suggested June freshness, but fetched page is dated 2025-09-09. Excluded from this review period.
-- Orange Business — Josh Bersin podcast with Laurent Aufils on people-first AI transformation: strong content, but search date is 2026-05-29, outside the review period.
-- Orange Business — June 4 Live Intelligence hospital deployment coverage: in-window but customer-facing; the workforce/upskilling discussed belongs to a hospital customer network, not Orange Business itself.
-- Almarai — `https://www.almarai.com/en/corporate/media-center/almarai-news/almarai-55-graduates-leadership`: strong leadership-development content, but fetched page is dated 2026-05-07, outside the review period.
-- Viasat — Atos digital workplace modernization: useful transformation/employee-experience context, but search result dates were May 19/May 28, outside the review period.
-- Bertelsmann University — official executive development pages show a cohort running May 29–June 4, 2026, but there was no proof the source was first published or materially updated in the review period.
-
-## Merge and verification status
-
-- Batch anti-placeholder check: not run; no completed lane logs exist.
-- Part A merge: not run.
-- Cross-signal harvest: not run.
-- Trade media sweep: not complete.
-- Part B merge: not run.
-- Digest file `runs/2026-W24/master-digest-2026-W24.md`: not written.
-- Manual verifier-equivalent check: **FAIL**.
-  - Blocking issue: all 24 planned batch lane logs are missing.
-  - Blocking issue: the manifest matrix has 270 incomplete row × signal cells (45 account rows × 6 signals).
-  - Blocking issue: the trade media sweep is not complete.
-  - Blocking issue: `runs/2026-W24/master-digest-2026-W24.md` is not written because a compliant merge is not allowed before lane logs exist and pass the anti-placeholder check.
-  - Counts: total rows 45; rows with at least one merged Part A signal 0; RF-SILENCE-ROW 0; incomplete cells 270.
-  - The dedicated `max-digest-verifier` subagent was not available as a callable tool in this session; this manual result applies the same checklist to the known-incomplete run folder.
-
-## Resume instructions
-
-1. Run `max-signal-sop-runner` or a true equivalent once per planned batch id, starting with `S1-B01`, passing the exact target lane-log path from the manifest.
-2. After each lane file lands, open it and confirm it contains row-specific queries, URLs, and outcomes before moving on.
-3. Only after all 24 batch lane logs exist and pass the anti-placeholder check, merge qualifying entries into `runs/2026-W24/master-digest-2026-W24.md`.
-4. Then scan every batch log for cross-signal hints, run the full trade media sweep, update Part B, write the final master index, fill the manifest matrix last, and invoke the digest verifier.
+- **VERDICT:** PASS WITH NOTES
+- Blocking issues: none found.
+- Non-blocking notes: dedicated `max-digest-verifier` subagent was not available as a callable tool in this session, so the orchestrator ran the same checklist locally against the completed run folder. The remaining notes are quality notes: several included Signal 4 entries rely on official ATS/API/search-snippet fallback because browser-style fetches were script-heavy, and the raw lane logs contain one literal "No RF-WAIVER used" statement in S6-B02 to say no waiver was taken.
+- Counts: total rows 45; rows with >=1 signal 14; Part A entries 15; RF-SILENCE-ROW 31; incomplete cells 0; planned lane logs present 24/24; trade sweep audit rows 17.
+- Matrix check: PASS - all 45 account rows show Attempted for all six signal columns, backed by the 24 lane logs.
+- Sweep check: PASS - `run-manifest-2026-W24.md` lists real outlets, queries, candidate URLs, outcomes, and routed tags.
+- Language spot-check: PASS WITH NOTES - lane logs show local-language attempts for French, German, Arabic, Japanese, Afrikaans, Danish, and Chinese rows where applicable; examples include Orange/ENGIE/Pierre Fabre French, METRO/Phoenix German, Almarai Arabic, Sony Japanese, Toyota/Woolworths Afrikaans, DOVISTA Danish, and Galaxy Chinese.
+- Placeholder check: PASS - no forbidden boilerplate or "evidence in orchestrator session" language found in any lane log.
+- Part A quality spot-check: PASS - sampled entries (Emirates group S1 uplift, Orange Group S3, Oscar Health S4) contain active-window dates, primary links or official API fallback links, required commercial gate fields, and passing scores.
