@@ -153,7 +153,13 @@ These notes are provided only to help the next operator. They are not merged Par
 - Trade media sweep: not complete.
 - Part B merge: not run.
 - Digest file `runs/2026-W24/master-digest-2026-W24.md`: not written.
-- Verifier: not invoked as a completed-run verifier because the run folder is knowingly incomplete. Expected verdict if invoked now would be FAIL due to 270 incomplete row × signal cells and missing batch lane logs.
+- Manual verifier-equivalent check: **FAIL**.
+  - Blocking issue: all 24 planned batch lane logs are missing.
+  - Blocking issue: the manifest matrix has 270 incomplete row × signal cells (45 account rows × 6 signals).
+  - Blocking issue: the trade media sweep is not complete.
+  - Blocking issue: `runs/2026-W24/master-digest-2026-W24.md` is not written because a compliant merge is not allowed before lane logs exist and pass the anti-placeholder check.
+  - Counts: total rows 45; rows with at least one merged Part A signal 0; RF-SILENCE-ROW 0; incomplete cells 270.
+  - The dedicated `max-digest-verifier` subagent was not available as a callable tool in this session; this manual result applies the same checklist to the known-incomplete run folder.
 
 ## Resume instructions
 
