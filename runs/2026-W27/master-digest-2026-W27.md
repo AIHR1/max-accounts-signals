@@ -166,6 +166,7 @@ _No verified entries for this signal in the review period._
 - **RF-CLASSIFICATION** — Galaxy Entertainment Group SuccessFactors / HRIS postings were classified as `[hiring-trends]`, not `[hr-technology]`, because the evidence showed live implementation-capability hiring but no customer-primary go-live or rollout milestone in the review period.
 - **RF-CLASSIFICATION** — Viasat Workday evidence was classified as `[hiring-trends]`, not `[hr-technology]`, because the current evidence showed active Workday support hiring and historical Kainos case-study context but no June 23-29 HR technology go-live.
 - Cross-signal hints in S6 logs for Galaxy Entertainment Group and Viasat were reviewed. No new Part A entry was added by cross-signal uplift because the same facts were already represented under `[hiring-trends]` and did not pass Signal 6 go-live requirements.
+- Cross-signal hints for Orange Business and First Quantum Minerals were reviewed. No new Part A entry was added because the source evidence was out of the review window or below the commercial threshold for a separate uplift.
 
 ### Improvements for next run
 - Add direct browser verification for ATS systems that expose only shell text to automated fetches, especially Viasat, Schneider Electric and Gallagher.
