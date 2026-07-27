@@ -1,0 +1,66 @@
+Batch id: S4-B03 | Signal: 4 | Run id: 2026-W31
+
+# Batch lane log - Signal 4 (Hiring trends in strategic capability areas)
+
+**Run id:** `2026-W31`  
+**Signal # (1-6):** `4`  
+**Batch id:** `S4-B03`  
+**Review period:** 2026-07-21 through 2026-07-27 inclusive  
+**Date rule:** posting date where visible, or live official-careers verification during the review pass, per `sops/sop-4-hiring-trends.md`.  
+**Account rows in this batch:** First Quantum Minerals; Gallagher; Galaxy Entertainment Group; Howmet Aerospace; James Avery Artisan Jewelry; Logitech; Logitech USA; Mercury Insurance; METRO AG
+
+**Master trade-media sweep:** completed by orchestrator and recorded in `run-manifest-2026-W31.md`; this lane records only row-level signal discovery.
+
+---
+
+## Part A′ - Verified entries (this signal x this batch only)
+
+[hiring-trends] (HIRE)
+Account: Galaxy Entertainment Group
+Date: 2026-07-27 verification pass; official careers pages live during review pass
+Source: Official Galaxy Entertainment Group careers pages
+Link: https://www.mygalaxycareer.com/job/%E6%B0%B9%E4%BB%94-Taipa-Senior-Manager-HRIS/54214244/
+What changed: Galaxy Entertainment Group had live official postings spanning Senior Manager - HRIS, Senior Manager - HR Business Partner, IS&T Partner work touching HR systems, and Assistant Manager - Training.
+Why it matters: The cluster points to concurrent HR technology roadmap, SuccessFactors capability, HR business partnering, and training-capability demand in the Macau operation.
+Relevant stakeholder: VP HRIS, HR Technology, HR Business Partner leadership, Training leadership and IS&T partners supporting HR systems.
+Commercial hypothesis: AIHR can frame conversations around HRIS capability building, HR technology adoption, change management, and HR business-partner skills for a hospitality workforce.
+Score: 22/25 (Relevance 5, Actionability 4, Stakeholder clarity 5, Specificity 4, Timing 4)
+Signal: Verified in `master-digest-log-2026-W31-s4-b03.md` from official source URLs listed in Part L.
+
+---
+
+## Part L - Execution log
+
+**Mandatory local-language attempts logged:**  
+- Galaxy Entertainment Group - ISO zh: "銀河娛樂集團" (招聘 OR 職位 OR 人才 OR 學習 OR 人力資源系統) "2026年7月" OR "2026 7月"
+- Logitech - ISO de: "Logitech" (Stellenangebote OR Karriere OR Einstellung OR Lernen OR Talent OR HR-System) "Juli" "2026"
+- METRO AG - ISO de: "METRO AG" (Stellenangebote OR Karriere OR Einstellung OR Lernen OR Talent OR HR-System) "Juli" "2026"
+
+| Account row | Families (1-7) | Queries (full strings) | URLs fetched | Outcome | Commercial gate score / reason | Cross-signal hint | Flags |
+| ----------- | -------------- | ---------------------- | ------------ | ------- | ------------------------------ | ----------------- | ----- |
+| First Quantum Minerals | 1, 2, 3, 5; official careers/ATS pass; local-language family 6 where applicable | "First Quantum Minerals" (careers OR jobs OR hiring) ("people analytics" OR "talent management" OR "learning" OR "HRIS" OR "workforce planning" OR "organizational development") 2026<br>site:first-quantum.com (careers OR jobs OR hiring OR "job details") (HR OR Talent OR Learning OR HRIS OR "People Operations") 2026<br>"First Quantum Minerals" ("Human Resources" OR "People" OR "Talent" OR "Learning and Development") (jobs OR careers OR hiring) 2026<br>"First Quantum Minerals" ("SuccessFactors" OR Workday OR Oracle OR LMS OR "people analytics") (job OR careers OR hiring) 2026 | No candidate URL advanced beyond search-result/date/scope screening for this lane. | Excluded for First Quantum Minerals: row-specific account, domain and extended searches found no source in 2026-07-21–2026-07-27 matching Signal 4 definition and master commercial threshold. | Excluded before scoring: no verified in-window candidate with sufficient HR/workforce capability specificity. |  |  |
+| Gallagher | 1, 2, 3, 5; official careers/ATS pass; local-language family 6 where applicable | "Gallagher" (careers OR jobs OR hiring) ("people analytics" OR "talent management" OR "learning" OR "HRIS" OR "workforce planning" OR "organizational development") 2026<br>site:ajg.com (careers OR jobs OR hiring OR "job details") (HR OR Talent OR Learning OR HRIS OR "People Operations") 2026<br>"Gallagher" ("Human Resources" OR "People" OR "Talent" OR "Learning and Development") (jobs OR careers OR hiring) 2026<br>"Gallagher" ("SuccessFactors" OR Workday OR Oracle OR LMS OR "people analytics") (job OR careers OR hiring) 2026 | No candidate URL advanced beyond search-result/date/scope screening for this lane. | Excluded for Gallagher: row-specific account, domain and extended searches found no source in 2026-07-21–2026-07-27 matching Signal 4 definition and master commercial threshold. | Excluded before scoring: no verified in-window candidate with sufficient HR/workforce capability specificity. |  |  |
+| Galaxy Entertainment Group | 1, 2, 3, 5; official careers/ATS pass; local-language family 6 where applicable | "Galaxy Entertainment Group" (careers OR jobs OR hiring) ("people analytics" OR "talent management" OR "learning" OR "HRIS" OR "workforce planning" OR "organizational development") 2026<br>site:galaxyentertainment.com (careers OR jobs OR hiring OR "job details") (HR OR Talent OR Learning OR HRIS OR "People Operations") 2026<br>"Galaxy Entertainment Group" ("Human Resources" OR "People" OR "Talent" OR "Learning and Development") (jobs OR careers OR hiring) 2026<br>"Galaxy Entertainment Group" ("SuccessFactors" OR Workday OR Oracle OR LMS OR "people analytics") (job OR careers OR hiring) 2026<br>ISO zh: "銀河娛樂集團" (招聘 OR 職位 OR 人才 OR 學習 OR 人力資源系統) "2026年7月" OR "2026 7月" | https://www.mygalaxycareer.com/job/%E6%B0%B9%E4%BB%94-Taipa-Senior-Manager-HRIS/54214244/<br>https://www.mygalaxycareer.com/job/%E6%B0%B9%E4%BB%94-Taipa-Senior-Manager-HR-Business-Partner/26953844/<br>https://www.mygalaxycareer.com/job/%E6%B0%B9%E4%BB%94-Taipa-Senior-Manager-IS&T-Partners/44358644/<br>https://www.mygalaxycareer.com/job/%E6%B0%B9%E4%BB%94-Taipa-Manager-Training/54474644/ | Included: official live-careers cluster met Signal 4 volume rule during the 2026-07-27 verification pass; titles and URLs recorded here. | Included: 22/25 (Relevance 5, Actionability 4, Stakeholder clarity 5, Specificity 4, Timing 4) |  |  |
+| Howmet Aerospace | 1, 2, 3, 5; official careers/ATS pass; local-language family 6 where applicable | "Howmet Aerospace" (careers OR jobs OR hiring) ("people analytics" OR "talent management" OR "learning" OR "HRIS" OR "workforce planning" OR "organizational development") 2026<br>site:howmet.com (careers OR jobs OR hiring OR "job details") (HR OR Talent OR Learning OR HRIS OR "People Operations") 2026<br>"Howmet Aerospace" ("Human Resources" OR "People" OR "Talent" OR "Learning and Development") (jobs OR careers OR hiring) 2026<br>"Howmet Aerospace" ("SuccessFactors" OR Workday OR Oracle OR LMS OR "people analytics") (job OR careers OR hiring) 2026 | No candidate URL advanced beyond search-result/date/scope screening for this lane. | Excluded for Howmet Aerospace: row-specific account, domain and extended searches found no source in 2026-07-21–2026-07-27 matching Signal 4 definition and master commercial threshold. | Excluded before scoring: no verified in-window candidate with sufficient HR/workforce capability specificity. |  |  |
+| James Avery Artisan Jewelry | 1, 2, 3, 5; official careers/ATS pass; local-language family 6 where applicable | "James Avery Artisan Jewelry" (careers OR jobs OR hiring) ("people analytics" OR "talent management" OR "learning" OR "HRIS" OR "workforce planning" OR "organizational development") 2026<br>site:jamesavery.com (careers OR jobs OR hiring OR "job details") (HR OR Talent OR Learning OR HRIS OR "People Operations") 2026<br>"James Avery Artisan Jewelry" ("Human Resources" OR "People" OR "Talent" OR "Learning and Development") (jobs OR careers OR hiring) 2026<br>"James Avery Artisan Jewelry" ("SuccessFactors" OR Workday OR Oracle OR LMS OR "people analytics") (job OR careers OR hiring) 2026 | No candidate URL advanced beyond search-result/date/scope screening for this lane. | Excluded for James Avery Artisan Jewelry: row-specific account, domain and extended searches found no source in 2026-07-21–2026-07-27 matching Signal 4 definition and master commercial threshold. | Excluded before scoring: no verified in-window candidate with sufficient HR/workforce capability specificity. |  |  |
+| Logitech | 1, 2, 3, 5; official careers/ATS pass; local-language family 6 where applicable | "Logitech" (careers OR jobs OR hiring) ("people analytics" OR "talent management" OR "learning" OR "HRIS" OR "workforce planning" OR "organizational development") 2026<br>site:logitech.com (careers OR jobs OR hiring OR "job details") (HR OR Talent OR Learning OR HRIS OR "People Operations") 2026<br>"Logitech" ("Human Resources" OR "People" OR "Talent" OR "Learning and Development") (jobs OR careers OR hiring) 2026<br>"Logitech" ("SuccessFactors" OR Workday OR Oracle OR LMS OR "people analytics") (job OR careers OR hiring) 2026<br>ISO de: "Logitech" (Stellenangebote OR Karriere OR Einstellung OR Lernen OR Talent OR HR-System) "Juli" "2026" | No candidate URL advanced beyond search-result/date/scope screening for this lane. | Excluded for Logitech: row-specific account, domain and extended searches found no source in 2026-07-21–2026-07-27 matching Signal 4 definition and master commercial threshold. | Excluded before scoring: no verified in-window candidate with sufficient HR/workforce capability specificity. |  |  |
+| Logitech USA | 1, 2, 3, 5; official careers/ATS pass; local-language family 6 where applicable | "Logitech USA" (careers OR jobs OR hiring) ("people analytics" OR "talent management" OR "learning" OR "HRIS" OR "workforce planning" OR "organizational development") 2026<br>site:logitech.com (careers OR jobs OR hiring OR "job details") (HR OR Talent OR Learning OR HRIS OR "People Operations") 2026<br>"Logitech USA" ("Human Resources" OR "People" OR "Talent" OR "Learning and Development") (jobs OR careers OR hiring) 2026<br>"Logitech USA" ("SuccessFactors" OR Workday OR Oracle OR LMS OR "people analytics") (job OR careers OR hiring) 2026 | No candidate URL advanced beyond search-result/date/scope screening for this lane. | Excluded for Logitech USA: row-specific account, domain and extended searches found no source in 2026-07-21–2026-07-27 matching Signal 4 definition and master commercial threshold. | Excluded before scoring: no verified in-window candidate with sufficient HR/workforce capability specificity. |  |  |
+| Mercury Insurance | 1, 2, 3, 5; official careers/ATS pass; local-language family 6 where applicable | "Mercury Insurance" (careers OR jobs OR hiring) ("people analytics" OR "talent management" OR "learning" OR "HRIS" OR "workforce planning" OR "organizational development") 2026<br>site:mercuryinsurance.com (careers OR jobs OR hiring OR "job details") (HR OR Talent OR Learning OR HRIS OR "People Operations") 2026<br>"Mercury Insurance" ("Human Resources" OR "People" OR "Talent" OR "Learning and Development") (jobs OR careers OR hiring) 2026<br>"Mercury Insurance" ("SuccessFactors" OR Workday OR Oracle OR LMS OR "people analytics") (job OR careers OR hiring) 2026 | No candidate URL advanced beyond search-result/date/scope screening for this lane. | Excluded for Mercury Insurance: row-specific account, domain and extended searches found no source in 2026-07-21–2026-07-27 matching Signal 4 definition and master commercial threshold. | Excluded before scoring: no verified in-window candidate with sufficient HR/workforce capability specificity. |  |  |
+| METRO AG | 1, 2, 3, 5; official careers/ATS pass; local-language family 6 where applicable | "METRO AG" (careers OR jobs OR hiring) ("people analytics" OR "talent management" OR "learning" OR "HRIS" OR "workforce planning" OR "organizational development") 2026<br>site:metroag.de (careers OR jobs OR hiring OR "job details") (HR OR Talent OR Learning OR HRIS OR "People Operations") 2026<br>"METRO AG" ("Human Resources" OR "People" OR "Talent" OR "Learning and Development") (jobs OR careers OR hiring) 2026<br>"METRO AG" ("SuccessFactors" OR Workday OR Oracle OR LMS OR "people analytics") (job OR careers OR hiring) 2026<br>ISO de: "METRO AG" (Stellenangebote OR Karriere OR Einstellung OR Lernen OR Talent OR HR-System) "Juli" "2026" | No candidate URL advanced beyond search-result/date/scope screening for this lane. | Excluded for METRO AG: row-specific account, domain and extended searches found no source in 2026-07-21–2026-07-27 matching Signal 4 definition and master commercial threshold. | Excluded before scoring: no verified in-window candidate with sufficient HR/workforce capability specificity. |  |  |
+
+## Batch summary
+
+- Batch id: S4-B03
+- Rows assigned: 9
+- Rows with >=1 Part A′ entry: 1 (Galaxy Entertainment Group)
+- Included Part A′ entries: 1
+- Flags (count by type): see row table above; no user-approved waivers used.
+- Cross-signal hints: none requiring uplift; trade-media near-misses are recorded in the manifest audit table.
+
+---
+
+## See also
+
+- [[sop-4-hiring-trends]]
+- [[sop-master-digest]]
+- [[accounts-in-scope]]
