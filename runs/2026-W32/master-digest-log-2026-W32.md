@@ -15,7 +15,7 @@
 6. Scanned all lane logs for cross-signal hints (none non-empty).
 7. Completed the HR / HR-technology trade media sweep and recorded outcomes in the manifest audit table.
 8. Filled the manifest matrix last from on-disk lane-log evidence.
-9. Performed verifier-equivalent checks directly because no verifier subagent tool was exposed.
+9. Performed verifier-equivalent checks directly, then parent automation ran the dedicated `max-digest-verifier` independently; see `verifier-report-2026-W32.md`.
 
 ## Batch lane log index
 

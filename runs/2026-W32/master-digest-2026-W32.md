@@ -3,7 +3,7 @@
 **Review period:** 2026-07-28 through 2026-08-03 inclusive (publication / disclosure date rule per child SOP Section 6).  
 **Run id:** `2026-W32`  
 **Accounts source:** `accounts-in-scope.md` (vault root).  
-**Execution note:** Dedicated `max-signal-sop-runner` and `max-digest-verifier` subagent tools were not exposed in this runtime, so the orchestrator executed the row-slice discovery, persisted lane logs, and performed verifier-equivalent checks directly.
+**Execution note:** The dedicated `max-signal-sop-runner` tool was not exposed inside the orchestrator runtime, so the orchestrator executed row-slice discovery directly and persisted lane logs. The orchestrator performed verifier-equivalent checks, and the parent automation then ran the dedicated `max-digest-verifier` independently; see `verifier-report-2026-W32.md`.
 
 ---
 

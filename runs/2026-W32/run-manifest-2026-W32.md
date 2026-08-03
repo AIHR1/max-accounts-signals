@@ -135,4 +135,4 @@
 
 ---
 
-Verifier-equivalent checks performed directly in this runtime; no user-approved waivers were applied.
+Verifier-equivalent checks were performed directly by the orchestrator, then parent automation ran the dedicated `max-digest-verifier` independently; see `verifier-report-2026-W32.md`. No user-approved waivers were applied.
